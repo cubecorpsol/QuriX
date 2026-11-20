@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<title>Qurix – Tiles That Stay. Bonds That Last.</title>
+<meta name="description" content="Qurix premium tile adhesive – Q100, Q200 and Q300 grades for stronger, longer-lasting tile installations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#e31b1b;--red-dark:#b30f0f;--black:#0b0b0b;--ink:#111;--grey:#5d5d5d;--light:#f4f4f5;--radius:clamp(10px,2vw,18px);--ease:cubic-bezier(.22,.8,.3,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(14px,3.4vw,28px)}
+  section[id]{scroll-margin-top:8px}
+
+  /* ---------- Animations ---------- */
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  @keyframes drop{from{opacity:0;transform:translateY(-60px) scale(.94)}to{opacity:1;transform:none}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes slide{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}100%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
+  @keyframes sweep{from{transform:translateX(-30%) skewX(-30deg)}to{transform:translateX(30%) skewX(-30deg)}}
+  .reveal{opacity:0}
+  .reveal.in{opacity:1;animation:rise .85s var(--ease) var(--d,0s) backwards}
+  .no-js .reveal{opacity:1}
+  .eyebrow{display:block;width:clamp(36px,8vw,70px);height:clamp(3px,.5vw,4px);background:var(--red);margin-bottom:clamp(8px,2vw,18px);transform-origin:left}
+  .in .eyebrow{animation:grow .8s .2s var(--ease) backwards}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 clamp(12px,1.5vw,16px)/1 'Poppins',sans-serif;padding:clamp(12px,1.7vw,17px) clamp(20px,3.2vw,34px);border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,color .25s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+  .btn i{font-style:normal;transition:transform .25s var(--ease)}
+  .btn:hover i{transform:translateX(4px)}
+  .btn:active{transform:scale(.97)}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 8px 22px rgba(227,27,27,.35)}
+  .btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+  .btn-outline{background:rgba(0,0,0,.4);color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-outline:hover{background:#fff;color:#000}
+  .btn-white{background:#fff;color:var(--ink);animation:pulse 2.2s infinite}
+  .btn-white:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border-color:var(--red);padding:clamp(9px,1.4vw,13px) clamp(16px,2.6vw,28px);font-size:clamp(11px,1.4vw,15px)}
+  .btn-ghost:hover{background:var(--red)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:var(--black);color:#fff;overflow:hidden;isolation:isolate}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+    linear-gradient(115deg,transparent 52%,#c40d0d 52.2%,#e31b1b 70%,#8f0808 100%),
+    linear-gradient(120deg,#0b0b0b 0 18%,#1b1b1b 18% 34%,#0e0e0e 34% 50%,transparent 50%)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.07),transparent 55%),linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.5))}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:clamp(14px,3vw,22px) 0;position:relative;z-index:30;animation:rise .7s var(--ease) both}
+  .logo{display:inline-flex;flex-direction:column;align-items:center;line-height:1}
+  .logo .word{font-weight:800;font-size:clamp(34px,6.2vw,52px);letter-spacing:-1px;color:#fff}
+  .logo .word b{color:#d8d8d8;font-weight:800}
+  .logo .word sup{font-size:.22em;font-weight:500;vertical-align:top;position:relative;top:.12em;margin-left:2px}
+  .logo .tag{display:flex;align-items:center;gap:clamp(4px,1vw,8px);font-size:clamp(7px,1.2vw,11px);font-weight:600;letter-spacing:clamp(1.5px,.4vw,3px);margin-top:4px;color:#fff;white-space:nowrap}
+  .logo .tag::before,.logo .tag::after{content:"";width:clamp(10px,3vw,26px);height:2px;background:#fff;opacity:.9}
+  .logo.sm .word{font-size:clamp(28px,5vw,42px)}
+  .logo.sm .tag{font-size:clamp(6.5px,1.1vw,9px)}
+
+  .menu-btn{background:none;border:0;cursor:pointer;width:44px;height:40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:clamp(5px,1vw,8px);-webkit-tap-highlight-color:transparent}
+  .menu-btn span{display:block;height:3px;width:clamp(22px,4vw,30px);background:#fff;border-radius:2px;transition:.3s var(--ease)}
+  .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .menu-btn.open span:nth-child(2){opacity:0}
+  .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .menu{position:absolute;right:0;top:100%;background:rgba(10,10,10,.96);border:1px solid #2a2a2a;border-radius:14px;padding:8px;min-width:200px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s var(--ease)}
+  .menu.open{opacity:1;visibility:visible;transform:none}
+  .menu a{display:block;padding:12px 16px;border-radius:10px;font-weight:500;font-size:15px;transition:background .2s}
+  .menu a:hover,.menu a:active{background:var(--red)}
+
+  .hero-grid{display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);align-items:center;gap:clamp(4px,1vw,10px);padding:clamp(18px,3vw,30px) 0 clamp(36px,6vw,64px)}
+  .hero h1{font-size:clamp(19px,4.9vw,64px);line-height:1.13;font-weight:600;letter-spacing:-.5px;animation:rise .8s .2s var(--ease) both}
+  .hero h1 span{display:block;color:var(--red);font-weight:700}
+  .hero p.lead{font-size:clamp(12px,1.7vw,21px);margin:clamp(12px,2.4vw,22px) 0 clamp(16px,3.4vw,34px);max-width:430px;color:#f1f1f1;animation:rise .8s .35s var(--ease) both}
+  .hero-copy{position:relative;z-index:8}
+  .hero-btns{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(8px,1.6vw,16px);animation:rise .8s .5s var(--ease) both}
+  .hero-btns .btn{padding-left:clamp(12px,3.2vw,34px);padding-right:clamp(12px,3.2vw,34px);font-size:clamp(11px,1.5vw,16px)}
+  .hero-btns .btn-red{min-width:min(100%,280px)}
+  .hero-btns .btn-outline{min-width:min(86%,234px)}
+
+  .stage{position:relative;display:flex;justify-content:center;align-items:flex-end;height:clamp(250px,62vw,400px);padding:20px 0 clamp(16px,3.6vw,38px);margin-right:calc(-1 * clamp(14px,3.4vw,28px));margin-left:-3vw;animation:slide .9s .25s var(--ease) both}
+  .pedestal{position:absolute;left:1%;right:1%;bottom:0;height:clamp(40px,9vw,92px);background:linear-gradient(160deg,#4a4a4a,#1e1e1e 60%,#101010);transform:perspective(600px) rotateX(24deg);transform-origin:bottom;border-top:2px solid #6a6a6a;border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+  .stage .bag{position:relative;z-index:2;transform-origin:50% 100%;filter:drop-shadow(0 16px 14px rgba(0,0,0,.55))}
+  .stage .bag>*{animation:drop .9s var(--ease) both,float 5s ease-in-out infinite}
+  .stage .bag.side{width:30%}
+  .stage .bag.mid{width:38%;margin:0 -5%;z-index:3}
+  .stage .bag.side:nth-child(2){transform:rotate(-3deg)}
+  .stage .bag.side:nth-child(4){transform:rotate(3deg)}
+  .stage .bag.mid>*{animation-delay:.5s,1.8s}
+  .stage .bag.side:nth-child(2)>*{animation-delay:.35s,1.4s}
+  .stage .bag.side:nth-child(4)>*{animation-delay:.65s,2.2s}
+
+  /* ---------- Intro ---------- */
+  .intro{padding:clamp(28px,5vw,60px) 0 clamp(24px,4vw,48px)}
+  .intro-grid{display:grid;grid-template-columns:1.1fr 1.3fr;gap:clamp(10px,3.4vw,40px);align-items:center}
+  .intro h2{font-size:clamp(15px,3.4vw,40px);line-height:1.2;font-weight:700}
+  .intro p{color:var(--grey);margin-top:clamp(6px,1.2vw,14px);font-size:clamp(10.5px,1.5vw,16px);max-width:420px}
+  .features{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #ddd}
+  .feature{text-align:center;padding:clamp(4px,1vw,10px) clamp(3px,1.1vw,14px);border-right:1px solid #ddd;transition:transform .3s var(--ease)}
+  .feature:hover{transform:translateY(-4px)}
+  .feature:last-child{border-right:0}
+  .feature svg{width:clamp(24px,3.6vw,44px);height:clamp(24px,3.6vw,44px);margin:0 auto clamp(5px,1vw,12px);stroke:#222;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s var(--ease),stroke .3s}
+  .feature:hover svg{transform:scale(1.14) rotate(-5deg);stroke:var(--red)}
+  .feature span{font-size:clamp(9.5px,1.3vw,15px);color:#222;line-height:1.3;display:block}
+
+  /* ---------- Products ---------- */
+  .products{padding:clamp(14px,3vw,30px) 0 clamp(32px,5vw,60px);text-align:center}
+  .products .eyebrow{margin:0 auto clamp(8px,2vw,18px);transform-origin:center}
+  .products h2{font-size:clamp(20px,3.6vw,44px);font-weight:700;line-height:1.2}
+  .products .sub{font-size:clamp(11px,1.6vw,18px);color:#222;margin-top:4px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2.2vw,24px);margin-top:clamp(16px,3vw,34px)}
+  .card{background:var(--light);border:1px solid #e6e6e8;border-radius:var(--radius);padding:clamp(12px,2.4vw,26px) clamp(6px,1.6vw,18px) clamp(12px,2vw,22px);transition:transform .35s var(--ease),box-shadow .35s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.12)}
+  .card .bag{width:58%;max-width:190px;margin:0 auto clamp(6px,1vw,12px);filter:drop-shadow(0 12px 12px rgba(0,0,0,.35));transition:transform .5s var(--ease)}
+  .card:hover .bag{transform:translateY(-6px) rotate(-3deg) scale(1.05)}
+  .card h3{font-size:clamp(12px,2vw,22px);font-weight:700}
+  .card:nth-child(1) h3{color:#d99a00}.card:nth-child(2) h3{color:var(--red)}.card:nth-child(3) h3{color:#1a9e45}
+  .pill{display:inline-block;font-size:clamp(9px,1.2vw,14px);font-weight:600;color:#fff;padding:clamp(3px,.5vw,5px) clamp(8px,1.8vw,18px);border-radius:999px;margin:clamp(5px,1vw,10px) 0 clamp(6px,1.2vw,14px);white-space:nowrap}
+  .pill.g1{background:#f2b705;color:#111}.pill.g2{background:var(--red)}.pill.g3{background:#1a9e45}
+  .card p{font-size:clamp(10px,1.5vw,17px);line-height:1.35;color:#222;max-width:260px;margin:0 auto clamp(8px,1.2vw,14px)}
+  .more{display:inline-flex;gap:5px;align-items:center;font-weight:600;font-size:clamp(10px,1.4vw,16px);border-bottom:2px solid var(--red);padding-bottom:1px;white-space:nowrap}
+  .more em{color:var(--red);font-style:normal;transition:transform .25s var(--ease)}
+  .more:hover em{transform:translateX(4px)}
+
+  /* ---------- Why ---------- */
+  .why{background:linear-gradient(180deg,#131313,#0a0a0a);color:#fff;padding:clamp(24px,4.4vw,44px) 0;position:relative;overflow:visible}
+  .why::after{content:"";position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(0deg,rgba(255,255,255,.07),transparent);pointer-events:none}
+  .why-grid{display:grid;grid-template-columns:1.2fr 1.8fr;column-gap:clamp(8px,3vw,30px);row-gap:0;align-items:center;position:relative;z-index:1}
+  .why .eyebrow{margin-bottom:clamp(8px,1.4vw,14px)}
+  .why h2{font-size:clamp(20px,4vw,50px);font-weight:700;line-height:1.1}
+  .why p{font-size:clamp(11px,1.7vw,20px);margin:6px 0 clamp(12px,2.2vw,22px);color:#eee}
+  .why-feats{grid-template-columns:repeat(3,1fr);border-left:1px solid #444}
+  .why-feats .feature{border-right:1px solid #444}
+  .why-feats .feature:last-child{border-right:0}
+  .why-feats svg{stroke:#fff}
+  .why-feats .feature:hover svg{stroke:var(--red)}
+  .why-feats span{color:#fff}
+  .discover-menu{grid-column:1/-1;width:100%;min-width:0;position:relative;z-index:3}
+  .discover-toggle{font-family:inherit}
+  .discover-toggle[aria-expanded="true"] i{transform:rotate(90deg)}
+  .discover-dropdown{max-height:0;margin-top:0;padding:0 clamp(12px,2.4vw,24px);background:#111;border:0 solid #303030;border-radius:12px;box-shadow:0 0 0 rgba(0,0,0,0);overflow:hidden;opacity:0;transform:translateY(-8px);visibility:hidden;pointer-events:none;transition:max-height .65s var(--ease),margin .65s var(--ease),padding .65s var(--ease),border-width .65s var(--ease),opacity .4s ease,transform .65s var(--ease),visibility 0s linear .65s}
+  .discover-dropdown.open{max-height:420px;margin-top:8px;padding:clamp(14px,2.4vw,24px);border-width:1px;box-shadow:0 12px 32px rgba(0,0,0,.4);opacity:1;transform:translateY(0);visibility:visible;pointer-events:auto;transition:max-height .65s var(--ease),margin .65s var(--ease),padding .65s var(--ease),border-width .65s var(--ease),opacity .4s ease,transform .65s var(--ease),visibility 0s}
+  .discover-article{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(16px,3vw,32px);align-items:start;opacity:0;transform:translateY(-5px);transition:opacity .3s ease,transform .4s var(--ease)}
+  .discover-dropdown.open .discover-article{opacity:1;transform:translateY(0);transition-delay:.35s}
+  .discover-kicker{display:block;margin-bottom:8px;color:#E11D48;font-size:10px;font-weight:600;letter-spacing:1.5px}
+  .discover-article h3{font-size:clamp(16px,2vw,22px);line-height:1.2}
+  .discover-article p{margin-top:8px;color:#c7c7c7;font-size:clamp(11px,1.2vw,13px);line-height:1.55}
+  .discover-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none}
+  .discover-points a{display:block;height:100%;padding:10px 12px;border-left:2px solid #E11D48;border-radius:8px;background:#181818;color:#fff;transition:background .2s,color .2s,opacity .25s ease,transform .35s var(--ease);opacity:0;transform:translateY(-5px)}
+  .discover-dropdown.open .discover-points a{opacity:1;transform:translateY(0)}
+  .discover-dropdown.open .discover-points li:nth-child(1) a{transition-delay:0s,0s,.48s,.48s}
+  .discover-dropdown.open .discover-points li:nth-child(2) a{transition-delay:0s,0s,.56s,.56s}
+  .discover-dropdown.open .discover-points li:nth-child(3) a{transition-delay:0s,0s,.64s,.64s}
+  .discover-dropdown.open .discover-points li:nth-child(4) a{transition-delay:0s,0s,.72s,.72s}
+  .discover-points a:hover,.discover-points a:focus-visible{background:#222;color:#E11D48;outline:none;transition-delay:0s}
+  .discover-points a:focus-visible{box-shadow:inset 0 0 0 1px #E11D48}
+  .discover-points strong{display:block;font-size:12px}
+  .discover-points span{display:block;margin-top:4px;color:#bdbdbd;font-size:10px;line-height:1.4}
+  @media (max-width:640px){.discover-article{grid-template-columns:1fr}.discover-points{grid-template-columns:1fr}}
+
+  /* ---------- CTA ---------- */
+  .cta{padding:clamp(12px,2.4vw,24px) 0}
+  .cta-box{background:linear-gradient(100deg,#c10f0f 0%,#e31b1b 45%,#0b0b0b 100%);border-radius:clamp(14px,2.2vw,22px);padding:clamp(18px,3.4vw,34px) clamp(16px,4vw,40px);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2.4vw,24px);position:relative;overflow:hidden}
+  .cta-box::after{content:"";position:absolute;right:-5%;bottom:-18%;width:34%;height:44%;background:linear-gradient(135deg,#e31b1b,#7e0505);transform:skewX(-30deg) rotate(-8deg);border-radius:6px;z-index:0;opacity:.9}
+  .cta-box::before{content:"";position:absolute;right:6%;top:6%;width:18%;height:22%;background:linear-gradient(135deg,#d01414,#6a0404);transform:skewX(-30deg) rotate(-8deg);border-radius:6px;z-index:0;opacity:.8;animation:sweep 5s ease-in-out infinite alternate}
+  .cta-box>*{position:relative;z-index:1}
+  .cta h2{font-size:clamp(15px,3.2vw,40px);line-height:1.2;font-weight:700}
+  .cta p{font-size:clamp(10.5px,1.5vw,18px);margin-top:6px}
+
+  /* ---------- Footer ---------- */
+  footer{background:#0a0a0a;color:#fff;padding:clamp(18px,3vw,34px) 0 calc(clamp(18px,3vw,34px) + env(safe-area-inset-bottom))}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:clamp(8px,2vw,24px)}
+  .foot .sep{width:1px;height:clamp(34px,5vw,56px);background:#444;flex:none}
+  .foot a.site,.foot .phone{font-size:clamp(10px,1.7vw,19px);transition:color .2s}
+  .foot a.site:hover,.foot .phone:hover{color:var(--red)}
+  .foot .phone{display:flex;align-items:center;gap:clamp(5px,1vw,12px);white-space:nowrap}
+  .foot .phone svg{width:clamp(14px,2.2vw,26px);height:clamp(14px,2.2vw,26px);fill:#fff}
+
+  @media (min-width:960px){.stage{margin-left:0;padding-bottom:42px}}
+
+  /* ---------- Product detail sheet ---------- */
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes sheet{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+  .more{background:none;border-top:0;border-left:0;border-right:0;cursor:pointer;font-family:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .modal.open{display:flex;animation:fade .25s ease both}
+  .sheet{--ac:var(--red);position:relative;width:100%;max-width:560px;max-height:92vh;overflow:auto;background:#fff;border-radius:22px 22px 0 0;padding:0 0 calc(22px + env(safe-area-inset-bottom));animation:sheet .45s var(--ease) both;overscroll-behavior:contain}
+  .sheet-head{position:relative;background:linear-gradient(135deg,#0b0b0b,#1c1c1c);color:#fff;padding:22px 20px 18px;display:flex;align-items:center;gap:16px;border-bottom:4px solid var(--ac)}
+  .sheet-head .bag{width:86px;flex:none;filter:drop-shadow(0 10px 10px rgba(0,0,0,.5));animation:float 4.5s ease-in-out infinite}
+  .sheet-head h3{font-size:22px;font-weight:700;line-height:1.2}
+  .sheet-head .pill{margin:8px 0 0}
+  .sheet-x{position:absolute;right:10px;top:10px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:22px;line-height:1;cursor:pointer;transition:background .2s,transform .25s var(--ease)}
+  .sheet-x:hover{background:var(--red);transform:rotate(90deg)}
+  .sheet-body{padding:18px 20px 0}
+  .sheet-body .lead{font-size:15px;color:#333;margin-bottom:16px}
+  .sheet-body h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);font-weight:600;margin:14px 0 8px}
+  .sheet-body ul{list-style:none;display:grid;gap:8px}
+  .sheet-body li{position:relative;padding-left:24px;font-size:14.5px;color:#222;opacity:0;animation:rise .5s var(--ease) both}
+  .sheet-body li::before{content:"";position:absolute;left:2px;top:.45em;width:10px;height:10px;border-radius:50%;background:var(--ac)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{font-size:13px;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--light);border:1px solid #e6e6e8;opacity:0;animation:pop .45s var(--ease) both}
+  .sheet-cta{display:flex;gap:10px;padding:20px 20px 0}
+  .sheet-cta .btn{flex:1;padding:14px 18px;font-size:14px}
+  .sheet-cta .btn-red{background:var(--ac);box-shadow:none;color:#fff}
+  .sheet-cta .btn-close{background:var(--light);color:var(--ink);border-color:#e0e0e2}
+  .sheet-cta .btn-close:hover{background:#e9e9eb}
+  body.lock{overflow:hidden}
+  @media (min-width:700px){.modal{align-items:center;padding:24px}.sheet{border-radius:22px;padding-bottom:24px}.sheet-head{padding:26px 28px 22px}.sheet-body{padding:22px 28px 0}.sheet-cta{padding:22px 28px 0}.sheet-head .bag{width:100px}}
+
+  /* ---------- Product cards ---------- */
+  .products{background:#fff}
+  .cards{align-items:stretch}
+  .card{display:flex;flex-direction:column;align-items:center;background:#f4f4f5;border:0;border-radius:clamp(14px,2.4vw,26px);padding:clamp(14px,2.4vw,26px) clamp(8px,1.6vw,18px) clamp(16px,2.4vw,26px);box-shadow:none}
+  .card:hover{box-shadow:0 22px 46px rgba(20,24,35,.12)}
+  .shot{position:relative;width:100%;aspect-ratio:4/5;display:grid;place-items:center;margin-bottom:clamp(8px,1.4vw,16px)}
+  .shot .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;transition:transform .5s var(--ease)}
+  .shot.has-photo .bag{display:none}
+  .hphoto{display:block;width:100%;height:auto}
+  .card:hover .shot .photo{transform:translateY(-6px) scale(1.03)}
+  .shot .bag{width:86%;max-width:300px;margin:0;filter:drop-shadow(0 10px 10px rgba(0,0,0,.14));transition:transform .5s var(--ease)}
+  .card:hover .shot .bag{transform:translateY(-6px) scale(1.03)}
+  .card p{flex:1}
+  @media (max-width:340px){.foot a.site{font-size:9px}.btn{padding:11px 16px}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1}}
+</style>
+<body>
+<script>document.documentElement.className+=' js';</script>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#home" class="logo" aria-label="Qurix home">
+        <span class="word">QURI<b>X</b><sup>®</sup></span>
+        <span class="tag">CURE. GRIP. FIX.</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="menu" id="menu">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#why">Why Qurix</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Tiles That Stay.<span>Bonds That Last.</span></h1>
+        <p class="lead">Premium tile adhesive for stronger, longer-lasting installations.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-red">Explore Our Products <i>&rarr;</i></a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+      <div class="stage" aria-label="Qurix Q100, Q200 and Q300 tile adhesive">
+        <div class="pedestal"></div>
+        <div class="bag side"><div data-bag="Q100|T1 – Grade 1"></div><img class="hphoto" src="assets/qurix-q100.webp" alt="QURIX Q100 T1 – Grade 1 – 20 kg tile adhesive bag" width="960" height="1200" decoding="async" fetchpriority="high" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <div class="bag mid"><div data-bag="Q200|T2 – Grade 2"></div><img class="hphoto" src="assets/qurix-q200.webp" alt="QURIX Q200 T2 – Grade 2 – 20 kg tile adhesive bag" width="960" height="1200" decoding="async" fetchpriority="high" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <div class="bag side"><div data-bag="Q300|T3 – Grade 3"></div><img class="hphoto" src="assets/qurix-q300.webp" alt="QURIX Q300 T3 – Grade 3 – 20 kg tile adhesive bag" width="960" height="1200" decoding="async" fetchpriority="high" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= INTRO ================= -->
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div class="reveal">
+      <span class="eyebrow"></span>
+      <h2>A Stronger Bond<br>for a Better Build.</h2>
+      <p>Weak adhesion can compromise the finish and durability. Qurix delivers dependable bonding performance with easy application.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal" style="--d:.05s">
+        <svg viewBox="0 0 48 48"><path d="M9 32c-3-6 0-12 5-13l6-7c2-2 5 0 4 3l-2 6 8 1c3 0 5 3 3 5l-1 2 1 3c1 3-1 5-4 5H22c-4 0-8-2-10-5l-3-0z"/><path d="M14 19l-2 8"/></svg>
+        <span>High-Strength<br>Bonding</span>
+      </div>
+      <div class="feature reveal" style="--d:.15s">
+        <svg viewBox="0 0 48 48"><path d="M6 24 24 8l18 16"/><path d="M11 20v20h10V28h6v12h10V20"/><path d="M34 11v6"/></svg>
+        <span>Interior &amp;<br>Exterior Use</span>
+      </div>
+      <div class="feature reveal" style="--d:.25s">
+        <svg viewBox="0 0 48 48"><path d="M24 6 6 15l18 9 18-9z"/><path d="m6 22 18 9 18-9"/><path d="m6 29 18 9 18-9"/></svg>
+        <span>Tile-on-Tile<br>Fixing</span>
+      </div>
+      <div class="feature reveal" style="--d:.35s">
+        <svg viewBox="0 0 48 48"><path d="M16 22v18H8V22z"/><path d="M16 24l7-15c3 0 5 2 4 6l-1 6h11c3 0 5 2 4 5l-3 12c-.5 2-2 3-4 3H16"/></svg>
+        <span>Easy<br>Application</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow"></span>
+      <h2>Our Product Range</h2>
+      <p class="sub">Three Grades. One Promise – Stronger Bonds.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal" style="--d:.05s">
+        <div class="shot"><div class="bag" data-bag="Q100|T1 – Grade 1"></div><img class="photo" src="assets/qurix-q100.webp" alt="QURIX Q100 T1 – Grade 1 – 20 kg tile adhesive bag" width="640" height="800" loading="lazy" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></div>
+        <h3>Qurix Q100</h3>
+        <span class="pill g1">T1 – Grade 1</span>
+        <p>Reliable performance for everyday tiling.</p>
+        <button type="button" class="more" data-more="q100">Know More <em>&rarr;</em></button>
+      </article>
+      <article class="card reveal" style="--d:.18s">
+        <div class="shot"><div class="bag" data-bag="Q200|T2 – Grade 2"></div><img class="photo" src="assets/qurix-q200.webp" alt="QURIX Q200 T2 – Grade 2 – 20 kg tile adhesive bag" width="640" height="800" loading="lazy" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></div>
+        <h3>Qurix Q200</h3>
+        <span class="pill g2">T2 – Grade 2</span>
+        <p>Premium strength for demanding spaces.</p>
+        <button type="button" class="more" data-more="q200">Know More <em>&rarr;</em></button>
+      </article>
+      <article class="card reveal" style="--d:.3s">
+        <div class="shot"><div class="bag" data-bag="Q300|T3 – Grade 3"></div><img class="photo" src="assets/qurix-q300.webp" alt="QURIX Q300 T3 – Grade 3 – 20 kg tile adhesive bag" width="640" height="800" loading="lazy" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></div>
+        <h3>Qurix Q300</h3>
+        <span class="pill g3">T3 – Grade 3</span>
+        <p>Advanced performance for superior results.</p>
+        <button type="button" class="more" data-more="q300">Know More <em>&rarr;</em></button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <div class="reveal">
+      <span class="eyebrow"></span>
+      <h2>Why Qurix?</h2>
+      <p>More than just a tile adhesive.</p>
+      <button type="button" class="btn btn-ghost discover-toggle" id="discoverToggle" aria-expanded="false" aria-controls="discoverDropdown">Discover More <i>&rarr;</i></button>
+    </div>
+    <div class="features why-feats">
+      <div class="feature reveal" id="reliable-performance" style="--d:.05s">
+        <svg viewBox="0 0 48 48"><path d="M14 8h20l8 10-18 22L6 18z"/><path d="M6 18h36M18 8l-4 10 10 22 10-22-4-10"/></svg>
+        <span>Reliable<br>Performance</span>
+      </div>
+      <div class="feature reveal" id="versatile-applications" style="--d:.15s">
+        <svg viewBox="0 0 48 48"><path d="M24 5 8 11v12c0 10 7 17 16 20 9-3 16-10 16-20V11z"/><path d="m16 24 6 6 11-12"/></svg>
+        <span>Versatile<br>Applications</span>
+      </div>
+      <div class="feature reveal" id="application-made-simple" style="--d:.25s">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.9 9.9l4.2 4.2M33.9 33.9l4.2 4.2M9.9 38.1l4.2-4.2M33.9 14.1l4.2-4.2"/><circle cx="24" cy="24" r="13"/></svg>
+        <span>Application<br>Made Simple</span>
+      </div>
+    </div>
+    <div class="discover-menu">
+      <div class="discover-dropdown" id="discoverDropdown" aria-label="Discover more about Qurix" aria-hidden="true" inert>
+        <article class="discover-article">
+          <div>
+            <span class="discover-kicker">WHY QURIX</span>
+            <h3>A stronger bond for every space.</h3>
+            <p>Qurix pairs dependable adhesion with practical application for lasting tile installations.</p>
+          </div>
+          <ul class="discover-points">
+            <li><a href="#reliable-performance"><strong>Reliable Performance</strong><span>Dependable bonding for longer-lasting installations.</span></a></li>
+            <li><a href="#versatile-applications"><strong>Versatile Applications</strong><span>Interior, exterior, and tile-on-tile applications.</span></a></li>
+            <li><a href="#application-made-simple"><strong>Application Made Simple</strong><span>Straightforward application for a smooth installation.</span></a></li>
+            <li><a href="#contact"><strong>Technical Data Sheets</strong><span>Contact our team for product specifications and guidance.</span></a></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div>
+        <h2>Every Great Space<br>Starts with a Strong Bond.</h2>
+        <p>Choose Qurix for dependable tile adhesion.</p>
+      </div>
+      <a href="tel:+919344630590" class="btn btn-white">Enquire Now <i>&rarr;</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <a href="#home" class="logo sm" aria-label="Qurix home">
+      <span class="word">QURI<b>X</b><sup>®</sup></span>
+      <span class="tag">CURE. GRIP. FIX.</span>
+    </a>
+    <span class="sep"></span>
+    <a class="site" href="https://www.qurix.kipipl.com" target="_blank" rel="noopener">A Kannan Infra Project</a>
+    <span class="sep"></span>
+    <a class="phone" href="tel:+919344630590">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+      +91 93446 30590
+    </a>
+  </div>
+</footer>
+
+<!-- ================= PRODUCT DETAIL ================= -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle" tabindex="-1">
+    <div class="sheet-head">
+      <img class="bag" id="mBag" alt="">
+      <div><h3 id="mTitle"></h3><span class="pill" id="mPill"></span></div>
+      <button type="button" class="sheet-x" id="mX" aria-label="Close">&times;</button>
+    </div>
+    <div class="sheet-body">
+      <p class="lead" id="mLead"></p>
+      <h4>Key Features</h4>
+      <ul id="mFeat"></ul>
+      <h4>Ideal For</h4>
+      <div class="tags" id="mUse"></div>
+    </div>
+    <div class="sheet-cta">
+      <a href="tel:+919344630590" class="btn btn-red">Enquire Now <i>&rarr;</i></a>
+      <button type="button" class="btn btn-close" id="mClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ---- Product bag illustration (glossy pouch, inline SVG) ---- */
+  function bagSVG(model, grade, uid){
+    /* T1 = yellow, T2 = red, T3 = green */
+    var C = grade.indexOf('Grade 1')>-1 ? {a:'#ffd62e',b:'#e3a300',t:'#f5b800',ink:'#111',bt:'#111'}
+          : grade.indexOf('Grade 2')>-1 ? {a:'#ff3a30',b:'#bf0b0b',t:'#e31b1b',ink:'#fff',bt:'#fff'}
+          : {a:'#2fd05f',b:'#0b8a3a',t:'#16a34a',ink:'#fff',bt:'#fff'};
+    var u = 'b' + uid + '_', F = 'Poppins,Arial,sans-serif';
+    var body = 'M26 12 Q120 5 214 12 L219 36 C228 72 232 132 231 200 C231 226 234 246 240 258 Q120 279 0 258 C6 246 9 226 9 200 C8 132 12 72 21 36 Z';
+    var seam = '', x;
+    for(x = 30; x < 212; x += 4.6){ seam += 'M'+x+' 15 L'+(x+(x<120?-.6:.6))+' 35 '; }
+    return '' +
+    '<svg viewBox="0 0 240 282" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Qurix '+model+' 20 kg tile adhesive bag">' +
+      '<defs>' +
+        '<clipPath id="'+u+'c"><path d="'+body+'"/></clipPath>' +
+        '<linearGradient id="'+u+'col" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+C.a+'"/><stop offset="1" stop-color="'+C.b+'"/></linearGradient>' +
+        '<linearGradient id="'+u+'blk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d1d1f"/><stop offset=".6" stop-color="#0d0d0e"/><stop offset="1" stop-color="#030303"/></linearGradient>' +
+        '<linearGradient id="'+u+'bulge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset=".14" stop-color="#000" stop-opacity=".05"/><stop offset=".3" stop-color="#fff" stop-opacity=".2"/><stop offset=".46" stop-color="#fff" stop-opacity="0"/><stop offset=".84" stop-color="#000" stop-opacity=".2"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></linearGradient>' +
+        '<linearGradient id="'+u+'gloss" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>' +
+        '<linearGradient id="'+u+'seam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".6" stop-color="#000" stop-opacity=".1"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></linearGradient>' +
+        '<linearGradient id="'+u+'acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+C.a+'"/><stop offset="1" stop-color="'+C.t+'"/></linearGradient>' +
+        '<filter id="'+u+'blur" x="-20%" y="-100%" width="140%" height="300%"><feGaussianBlur stdDeviation="4"/></filter>' +
+      '</defs>' +
+      /* contact shadow */
+      '<ellipse cx="122" cy="269" rx="116" ry="9" fill="#000" opacity=".28" filter="url(#'+u+'blur)"/>' +
+      '<g clip-path="url(#'+u+'c)">' +
+        '<rect width="240" height="282" fill="url(#'+u+'blk)"/>' +
+        '<path d="M0 0 H240 V116 L0 166 Z" fill="url(#'+u+'col)"/>' +
+        /* accent slabs */
+        '<path d="M150 124 L196 112 L188 134 L142 146Z" fill="url(#'+u+'acc)"/>' +
+        '<path d="M170 148 L214 138 L206 160 L162 170Z" fill="url(#'+u+'acc)"/>' +
+        /* glossy film */
+        '<rect width="240" height="282" fill="url(#'+u+'bulge)"/>' +
+        '<path d="M44 40 C34 90 34 150 42 196 L56 196 C50 150 50 90 58 40Z" fill="url(#'+u+'gloss)" opacity=".7"/>' +
+        '<path d="M92 40 C88 80 92 120 104 150 L110 148 C100 118 98 80 100 40Z" fill="#fff" opacity=".1"/>' +
+        '<path d="M196 60 C208 100 214 150 212 200 L218 200 C220 150 214 100 202 60Z" fill="#fff" opacity=".09"/>' +
+        /* wrinkles near seal and base */
+        '<g fill="none" stroke-linecap="round">' +
+          '<path d="M24 38 Q48 58 38 96" stroke="#fff" stroke-opacity=".28" stroke-width="1.6"/>' +
+          '<path d="M30 40 Q54 62 46 102" stroke="#000" stroke-opacity=".2" stroke-width="1.2"/>' +
+          '<path d="M216 38 Q192 60 202 98" stroke="#fff" stroke-opacity=".22" stroke-width="1.6"/>' +
+          '<path d="M100 40 Q112 60 108 84" stroke="#fff" stroke-opacity=".18" stroke-width="1.2"/>' +
+          '<path d="M12 216 Q36 236 24 258" stroke="#fff" stroke-opacity=".12" stroke-width="1.4"/>' +
+          '<path d="M228 216 Q204 236 216 258" stroke="#fff" stroke-opacity=".1" stroke-width="1.4"/>' +
+          '<path d="M60 262 Q120 270 180 262" stroke="#fff" stroke-opacity=".16" stroke-width="1.4"/>' +
+        '</g>' +
+        /* heat-seal band */
+        '<rect x="0" y="0" width="240" height="38" fill="#fff" fill-opacity=".06"/>' +
+        '<path d="'+seam+'" stroke="#000" stroke-opacity=".22" stroke-width=".8" fill="none"/>' +
+        '<rect x="0" y="0" width="240" height="38" fill="url(#'+u+'seam)"/>' +
+        '<path d="M22 37 Q120 45 218 37" stroke="#000" stroke-opacity=".4" stroke-width="2" fill="none"/>' +
+      '</g>' +
+      '<path d="'+body+'" fill="none" stroke="#000" stroke-opacity=".28" stroke-width="1.2"/>' +
+      /* printed artwork */
+      '<text x="120" y="86" text-anchor="middle" font-family="'+F+'" font-weight="800" font-size="35" fill="'+C.ink+'" letter-spacing="-1">QURIX</text>' +
+      '<text x="120" y="100" text-anchor="middle" font-family="'+F+'" font-weight="600" font-size="7" fill="'+C.ink+'" letter-spacing="3.4">TILE ADHESIVE</text>' +
+      '<text x="38" y="186" font-family="'+F+'" font-weight="800" font-size="40" fill="#fff" letter-spacing="-.5">'+model+'</text>' +
+      '<text x="39" y="205" font-family="'+F+'" font-weight="500" font-size="12.5" fill="#fff">'+grade+'</text>' +
+      '<rect x="39" y="213" width="74" height="15" rx="3" fill="'+C.t+'"/>' +
+      '<text x="76" y="224" text-anchor="middle" font-family="'+F+'" font-weight="700" font-size="8" fill="'+C.bt+'">Premium Grade</text>' +
+      '<rect x="39" y="238" width="38" height="20" fill="#fff"/>' +
+      '<path d="M41 240v16M44 240v16M46 240v16M50 240v16M52 240v16M56 240v16M58 240v16M62 240v16M65 240v16M68 240v16M72 240v16M75 240v16" stroke="#111" stroke-width="1.1"/>' +
+      '<circle cx="186" cy="244" r="21" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="1.4"/>' +
+      '<text x="186" y="247" text-anchor="middle" font-family="'+F+'" font-weight="800" font-size="17" fill="#fff">20</text>' +
+      '<text x="186" y="257" text-anchor="middle" font-family="'+F+'" font-weight="600" font-size="7" fill="#fff">kg</text>' +
+    '</svg>';
+  }
+  document.querySelectorAll('[data-bag]').forEach(function(el, i){
+    var p = el.getAttribute('data-bag').split('|');
+    el.innerHTML = bagSVG(p[0], p[1], i);
+  });
+
+  /* ---- Mobile menu ---- */
+  var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+  function closeMenu(){ menu.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.addEventListener('click', function(e){ if(e.target.tagName === 'A') closeMenu(); });
+  document.addEventListener('click', closeMenu);
+
+  /* ---- Discover menu ---- */
+  var discoverBtn = document.getElementById('discoverToggle');
+  var discoverMenu = document.getElementById('discoverDropdown');
+  function closeDiscoverMenu(returnFocus){
+    discoverMenu.classList.remove('open');
+    discoverMenu.setAttribute('aria-hidden', 'true');
+    discoverMenu.setAttribute('inert', '');
+    discoverBtn.setAttribute('aria-expanded', 'false');
+    if(returnFocus) discoverBtn.focus();
+  }
+  discoverBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = discoverBtn.getAttribute('aria-expanded') !== 'true';
+    if(open){
+      discoverBtn.setAttribute('aria-expanded', 'true');
+      discoverMenu.setAttribute('aria-hidden', 'false');
+      discoverMenu.removeAttribute('inert');
+      discoverMenu.classList.add('open');
+    } else {
+      closeDiscoverMenu(false);
+    }
+  });
+  discoverMenu.addEventListener('click', function(e){
+    if(e.target.closest('a')) closeDiscoverMenu(false);
+  });
+  document.addEventListener('click', function(e){
+    if(discoverMenu.classList.contains('open') && !e.target.closest('.discover-menu')) closeDiscoverMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && discoverMenu.classList.contains('open')) closeDiscoverMenu(true);
+  });
+
+  /* ---- Scroll reveal ---- */
+  var items = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -5% 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  } else { items.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* ---- Product detail sheet ---- */
+  var PRODUCTS = {
+    q100:{name:'Qurix Q100', bag:'Q100|T1 – Grade 1', pill:'T1 – Grade 1', cls:'g1', ac:'#f2b705',
+      lead:'Reliable everyday adhesive for standard tile fixing on interior floors and walls.',
+      feat:['Dependable bond for everyday tiling','Smooth, easy-to-mix paste','Good workability for faster fixing','Economical choice for large areas'],
+      use:['Interior floors','Interior walls','Ceramic tiles','Living rooms','Bedrooms']},
+    q200:{name:'Qurix Q200', bag:'Q200|T2 – Grade 2', pill:'T2 – Grade 2', cls:'g2', ac:'#e31b1b',
+      lead:'Premium strength adhesive for demanding spaces and higher-traffic areas.',
+      feat:['Stronger bond for heavier tiles','Improved water resistance','Longer working time for accurate placement','Reduced tile slippage on walls'],
+      use:['Kitchens','Bathrooms','Vitrified tiles','Balconies','Commercial floors']},
+    q300:{name:'Qurix Q300', bag:'Q300|T3 – Grade 3', pill:'T3 – Grade 3', cls:'g3', ac:'#1a9e45',
+      lead:'Advanced performance adhesive for superior, long-lasting results in the toughest conditions.',
+      feat:['Highest bond strength in the range','Flexible, resists movement and weather','Suited to large-format and heavy tiles','Ideal for tile-on-tile fixing'],
+      use:['Exteriors','Large-format tiles','Tile-on-tile','Wet areas','Facades']}
+  };
+  var modal = document.getElementById('modal'), sheet = document.getElementById('sheet'), lastFocus = null;
+  function openMore(key, trigger){
+    var d = PRODUCTS[key]; if(!d) return;
+    lastFocus = trigger;
+    sheet.style.setProperty('--ac', d.ac);
+    document.getElementById('mTitle').textContent = d.name;
+    var pill = document.getElementById('mPill'); pill.textContent = d.pill; pill.className = 'pill ' + d.cls;
+    document.getElementById('mLead').textContent = d.lead;
+    var bag = document.getElementById('mBag');
+    var productImage = trigger.closest('.card').querySelector('.shot .photo');
+    bag.src = productImage.src;
+    bag.alt = productImage.alt;
+    document.getElementById('mFeat').innerHTML = d.feat.map(function(t,i){ return '<li style="animation-delay:'+(.15+i*.08)+'s">'+t+'</li>'; }).join('');
+    document.getElementById('mUse').innerHTML = d.use.map(function(t,i){ return '<span style="animation-delay:'+(.3+i*.07)+'s">'+t+'</span>'; }).join('');
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('lock'); sheet.scrollTop = 0; sheet.focus();
+  }
+  function closeMore(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('lock'); if(lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-more]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.stopPropagation(); openMore(b.getAttribute('data-more'), b); });
+  });
+  document.getElementById('mX').addEventListener('click', closeMore);
+  document.getElementById('mClose').addEventListener('click', closeMore);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeMore(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) closeMore(); });
+</script>
+</body>
+</html>
